@@ -72,5 +72,7 @@
   <div id="footer">
     <div class="footer">&copy; Copyright 2008-2011, Agendaless Consulting.</div>
   </div>
+  <div tal:content="structure notification_widget.display()"></div>
+  <div tal:content="structure moksha_socket.display()"></div>
 </body>
 </html>

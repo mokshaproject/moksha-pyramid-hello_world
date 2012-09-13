@@ -8,13 +8,21 @@ from .models import (
     MyModel,
     )
 
+import tutorial.widgets
+from moksha.wsgi.widgets.api import get_moksha_socket
+
 @view_config(route_name='home', renderer='templates/mytemplate.pt')
 def my_view(request):
     try:
         one = DBSession.query(MyModel).filter(MyModel.name=='one').first()
     except DBAPIError:
         return Response(conn_err_msg, content_type='text/plain', status_int=500)
-    return {'one':one, 'project':'tutorial'}
+    return {
+        'one':one,
+        'project':'tutorial',
+        'notification_widget': tutorial.widgets.PopupNotification,
+        'moksha_socket': get_moksha_socket(request.registry.settings),
+    }
 
 conn_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem
