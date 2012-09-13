@@ -40,6 +40,8 @@ setup(name='tutorial',
       main = tutorial:main
       [console_scripts]
       initialize_tutorial_db = tutorial.scripts.initializedb:main
+      [moksha.producer]
+      hello = tutorial.producers:HelloWorldProducer
       """,
       )
 
