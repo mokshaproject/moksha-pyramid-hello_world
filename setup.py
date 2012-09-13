@@ -14,6 +14,8 @@ requires = [
     'pyramid_debugtoolbar',
     'zope.sqlalchemy',
     'waitress',
+    "moksha.wsgi",
+    "moksha.hub",
     ]
 
 setup(name='tutorial',
